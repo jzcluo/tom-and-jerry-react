@@ -1,0 +1,81 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 80px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+/*home page css*/
+.button {
+	padding: 10px;
+	background-color: #000;
+	border-radius: 2px;
+	color: #FFF;
+	text-decoration: none;
+	display: block;
+	border: none;
+	width: 100%;
+	cursor: pointer;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.home-display {
+    position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.button-area-display {
+    text-align: center;
+}
+
+/*Sign up page css*/
+.signup-form {
+	position: relative;
+	margin: auto;
+	width: 400px;
+	background-color: #FFF;
+	border-radius: 5px;
+	padding: 20px;
+	margin-top: 50px;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.signup-form input[type=text], .signup-form input[type=password] {
+	display: block;
+	width: 100%;
+	font-size: 20px;
+	padding: 10px;
+	border-radius: 10px;
+	border: 1px solid #CCC;
+	outline: none;
+	margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
