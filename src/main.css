@@ -76,7 +76,41 @@
 }
 
 /*Map page*/
+.sidebar {
+    background-color: #222;
+    float:left;
+    width: 20%;
+    height: 600px;
+}
 
+.sidebar-datepicker {
+    width: 100%;
+    padding: 10px;
+	border-radius: 10px;
+	border: 1px solid #CCC;
+    margin-left: 8px;
+    margin-bottom: 20px;
+	outline: none;
+}
+
+.sidebar p {
+    font-size: 20px;
+	padding: 10px;
+	border-radius: 10px;
+    color: #FFF;
+}
+
+.sidebar button {
+    background-color: #FFF;
+    color: #222;
+    padding: 10px;
+	border-radius: 10px;
+	border: 1px solid #CCC;
+    outline: none;
+    padding: 10px;
+    margin-left: 8px;
+    width: 90%;
+}
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
