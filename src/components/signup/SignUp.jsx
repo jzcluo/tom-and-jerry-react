@@ -12,13 +12,6 @@ class SignUp extends React.Component {
             password1 : "",
             password2 : ""
         };
-        let config = {
-            apiKey: "AIzaSyD0DJ5yPL8NLLabk3FbPl-z1FeCk6AlfKI",
-            authDomain: "tom-and-jerry-a4bd1.firebaseapp.com",
-            databaseURL: "https://tom-and-jerry-a4bd1.firebaseio.com",
-            storageBucket: "tom-and-jerry-a4bd1.appspot.com"
-        };
-        firebase.initializeApp(config);
     }
 
     handleSubmit = (event) => {
@@ -49,7 +42,7 @@ class SignUp extends React.Component {
 
     render() {
         return(
-            <div class="signup-form">
+            <div className="signup-form">
                 <h2>Sign Up</h2>
                 <form onSubmit={this.handleSubmit}>
                     <label htmlFor="username">Username:</label>
