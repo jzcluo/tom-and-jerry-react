@@ -20,13 +20,37 @@ class MapOptionBar extends React.Component {
     };
 
     render() {
+
+        let sidebar;
+
+        switch (this.props.displayOption) {
+            case 'SEARCHBYDATE':
+                sidebar =   <div>
+                                <p>Start date:</p>
+                                <DatePicker className="sidebar-datepicker" selected={this.state.startDate} onChange={this.handleChange.bind(null, "startDate")}/>
+                                <p>End date:</p>
+                                <DatePicker className="sidebar-datepicker" selected={this.state.endDate} onChange={this.handleChange.bind(null, "endDate")}/>
+                                <button className='button' onClick={() => this.props.onDateButtonClick(this.state.startDate, this.state.endDate)}>Search By Date</button>
+                                <button className='button' onClick={() => this.props.onDisplayReportButtonClick()}>Display Report</button>
+                                <button className='button' onClick={() => this.props.onAddReportButtonClick()}>Add Report</button>
+                            </div>
+                break;
+            case 'ADDREPORT':
+                sidebar =   <div>
+                                <button className='button' onClick={() => this.props.onBackButtonClick()}>Back</button>
+                            </div>
+                break;
+            case 'DISPLAYREPORT':
+                sidebar =   <div>
+                                <button className='button' onClick={() => this.props.onBackButtonClick()}>Back</button>
+                            </div>
+                break;
+        }
+
+
         return(
             <div className="sidebar">
-                <p>Start date:</p>
-                <DatePicker className="sidebar-datepicker" selected={this.state.startDate} onChange={this.handleChange.bind(null, "startDate")}/>
-                <p>End date:</p>
-                <DatePicker className="sidebar-datepicker" selected={this.state.endDate} onChange={this.handleChange.bind(null, "endDate")}/>
-                <button className='button' onClick={() => this.props.onClick(this.state.startDate, this.state.endDate)}>Search By Date</button>
+                {sidebar}
             </div>
         );
     }

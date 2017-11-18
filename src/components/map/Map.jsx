@@ -16,12 +16,30 @@ class Map extends React.Component {
         };
         firebase.initializeApp(config);
         this.state = {
-            ratSightingData : []
+            ratSightingData : [],
+            displayOption : 'SEARCHBYDATE'
         };
     }
 
+    handleAddReportButtonClick = () => {
+        this.setState({
+            displayOption : "ADDREPORT"
+        });
+    };
 
-    handleButtonClick = (startDate, endDate) => {
+    handleDisplayReportButtonClick = () => {
+        this.setState({
+            displayOption : "DISPLAYREPORT"
+        });
+    };
+
+    handleBackButtonClick = () => {
+        this.setState({
+            displayOption : "SEARCHBYDATE"
+        });
+    };
+
+    handleDateButtonClick = (startDate, endDate) => {
         //modify startDate and endDate to expected format
         let startDateString = startDate.format('YYYY/MM/DD hh:mm:ss');
         let endDateString = endDate.format('YYYY/MM/DD hh:mm:ss');
@@ -44,9 +62,10 @@ class Map extends React.Component {
     };
 
     render() {
+
         return(
             <div>
-                <MapOptionBar onClick={(startDate, endDate) => this.handleButtonClick(startDate, endDate)}/>
+                <MapOptionBar displayOption={this.state.displayOption} onBackButtonClick={() => this.handleBackButtonClick()} onDisplayReportButtonClick={() => this.handleDisplayReportButtonClick()} onAddReportButtonClick={() => this.handleAddReportButtonClick()} onDateButtonClick={(startDate, endDate) => this.handleDateButtonClick(startDate, endDate)}/>
                 <GoogleMapsWrapper
                     googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMh8-5D3mJSXspmJrhSTtt0ToGiA-JLBc&libraries=geometry,drawing,places" // libraries=geometry,drawing,places
                     loadingElement={<div style={{ height: `100%` }} />}

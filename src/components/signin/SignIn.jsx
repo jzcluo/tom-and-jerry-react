@@ -16,6 +16,7 @@ class SignIn extends React.Component {
         event.preventDefault();
         if (!this.state.username || !this.state.password) {
             //fields cannot be empty
+            alert("fields cannot be empty");
         } else {
             firebase.auth().signInWithEmailAndPassword(this.state.username, this.state.password).then(() => {
                 console.log('success signing in');
