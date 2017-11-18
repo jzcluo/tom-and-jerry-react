@@ -19,10 +19,6 @@ class MapOptionBar extends React.Component {
         this.setState(newState);
     };
 
-    handleButtonClick = () => {
-        console.log(this.state.startDate);
-    };
-
     render() {
         return(
             <div className="sidebar">
@@ -30,7 +26,7 @@ class MapOptionBar extends React.Component {
                 <DatePicker className="sidebar-datepicker" selected={this.state.startDate} onChange={this.handleChange.bind(null, "startDate")}/>
                 <p>End date:</p>
                 <DatePicker className="sidebar-datepicker" selected={this.state.endDate} onChange={this.handleChange.bind(null, "endDate")}/>
-                <button className='button' onClick={this.handleButtonClick}>Search By Date</button>
+                <button className='button' onClick={() => this.props.onClick(this.state.startDate, this.state.endDate)}>Search By Date</button>
             </div>
         );
     }
