@@ -1,5 +1,4 @@
 import React from 'react';
-import {Redirect} from 'react-router-dom';
 import * as firebase from 'firebase';
 
 
@@ -16,7 +15,7 @@ class SignUp extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        if (this.state.password1 != this.state.password2) {
+        if (this.state.password1 !== this.state.password2) {
             alert("password must match");
         } else {
 
@@ -24,10 +23,6 @@ class SignUp extends React.Component {
                 console.log("signup success");
                 this.props.history.push('./map');
             }).catch(function(error) {
-                // Handle Errors here.
-                var errorCode = error.code;
-                var errorMessage = error.message;
-                // ...
                 console.log("signup failed");
                 alert("there has been an error in creating your account");
             });

@@ -1,5 +1,4 @@
 import React from 'react';
-import {Redirect} from 'react-router-dom';
 import * as firebase from 'firebase';
 
 
@@ -22,13 +21,8 @@ class SignIn extends React.Component {
                 console.log('success signing in');
                 this.props.history.push('./map');
             }).catch(function(error) {
-                // Handle Errors here.
-                let errorCode = error.code;
-                let errorMessage = error.message;
-                //cannot sign in
                 console.log("error signingin");
                 alert("wrong credentials");
-                // ...
             });
         }
     };
