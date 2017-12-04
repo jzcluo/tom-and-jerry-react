@@ -113,6 +113,33 @@
     width: 90%;
 }
 
+/*map option side bar*/
+.addreport-form {
+	position: relative;
+	margin: auto;
+	width: 80%;
+	padding: 20px;
+	margin-top: 50px;
+}
+
+.addreport-form input[type=text] {
+	display: block;
+	width: 100%;
+	font-size: 20px;
+	padding: 10px;
+	border-radius: 10px;
+	border: 1px solid #CCC;
+	outline: none;
+	margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.addreport-form label, li {
+    color: #FFF
+}
+
+
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

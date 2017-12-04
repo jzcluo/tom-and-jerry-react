@@ -10,8 +10,19 @@ class Map extends React.Component {
         super(props);
         this.state = {
             ratSightingData : [],
-            displayOption : 'SEARCHBYDATE'
+            displayOption : 'SEARCHBYDATE',
+            reportArray : []
         };
+        firebase.database().ref('/').child('Entries').orderByKey().startAt("36977188").limitToFirst(30).once('value', (snapshot) => {
+            let reportArray = [];
+            snapshot.forEach(function(childSnapshot) {
+                let childData = childSnapshot.val();
+                reportArray.push(childData);
+            });
+            this.setState({
+                reportArray : reportArray
+            });
+        });
     }
 
     handleAddReportButtonClick = () => {
@@ -30,6 +41,10 @@ class Map extends React.Component {
         this.setState({
             displayOption : "SEARCHBYDATE"
         });
+    };
+
+    handleGraphButtonClick = () => {
+        this.props.history.push('/graph');
     };
 
     handleDateButtonClick = (startDate, endDate) => {
@@ -58,7 +73,7 @@ class Map extends React.Component {
 
         return(
             <div>
-                <MapOptionBar displayOption={this.state.displayOption} onBackButtonClick={() => this.handleBackButtonClick()} onDisplayReportButtonClick={() => this.handleDisplayReportButtonClick()} onAddReportButtonClick={() => this.handleAddReportButtonClick()} onDateButtonClick={(startDate, endDate) => this.handleDateButtonClick(startDate, endDate)}/>
+                <MapOptionBar reportArray={this.state.reportArray} displayOption={this.state.displayOption} onBackButtonClick={() => this.handleBackButtonClick()} onDisplayReportButtonClick={() => this.handleDisplayReportButtonClick()} onAddReportButtonClick={() => this.handleAddReportButtonClick()} onDateButtonClick={(startDate, endDate) => this.handleDateButtonClick(startDate, endDate)} onGraphButtonClick={() => this.handleGraphButtonClick()}/>
                 <GoogleMapsWrapper
                     googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMh8-5D3mJSXspmJrhSTtt0ToGiA-JLBc&libraries=geometry,drawing,places" // libraries=geometry,drawing,places
                     loadingElement={<div style={{ height: `100%` }} />}
@@ -69,7 +84,6 @@ class Map extends React.Component {
                     {this.state.ratSightingData.map((data) => {
                         return <Marker key={data['Incident Zip'] + data['Latitude'] + data['Created Date']} position={{lat:Number(data.Latitude), lng:Number(data.Longitude)}}/>
                     })}
-
                 </GoogleMapsWrapper>
             </div>
         );

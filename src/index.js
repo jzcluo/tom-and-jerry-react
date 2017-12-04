@@ -8,6 +8,7 @@ import Home from './components/home/Home';
 import SignIn from './components/signin/SignIn';
 import SignUp from './components/signup/SignUp';
 import Map from './components/map/Map';
+import Graph from './components/graph/Graph';
 
 
 
@@ -22,6 +23,7 @@ ReactDOM.render(
                 <Route path="/signin" component={ SignIn } />
                 <Route path="/signup" component={ SignUp } />
                 <Route path='/map' component={ Map } />
+                <Route path='/graph' component={ Graph } />
             </Switch>
         </BrowserRouter>
     </div>
